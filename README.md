@@ -10,3 +10,22 @@
 4. 在复制后的文件夹中完成作答。
 5. 使用 Git 提交修改，并推送到自己的 GitHub 仓库。
 6. 在自己的 GitHub 仓库中，向源仓库发起 Pull Request（PR）提交答案。
+
+## 目录示例
+
+```text
+questions/
+└── JS-第一题/
+    ├── README.md
+    └── solution.js           # 公共模板
+
+answers/
+├── zhangsan/
+│   └── JS-第一题/
+│       └── solution.js       # 张三的答案
+└── lisi/
+    └── JS-第一题/
+        └── solution.js       # 李四的答案
+```
+
+仓库中的 `answers/danyujia/` 为示例作答文件夹，复制自 `questions/`。
