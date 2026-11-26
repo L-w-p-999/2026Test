@@ -20,12 +20,20 @@ questions/
     └── solution.js           # 公共模板
 
 answers/
-├── zhangsan/
+├── danyujia/                 # 示例作答文件夹
 │   └── JS-第一题/
-│       └── solution.js       # 张三的答案
-└── lisi/
+│       ├── README.md
+│       └── solution.js       # 示例模板
+├── liukaiqing/               # 示例作答文件夹
+│   └── JS-第一题/
+│       ├── README.md
+│       └── solution.js       # 示例模板
+└── 你的名字/                 # 仅作目录展示，作答时使用自己名字的汉语拼音
     └── JS-第一题/
-        └── solution.js       # 李四的答案
+        ├── README.md
+        └── solution.js       # 你的答案
 ```
 
-仓库中的 `answers/danyujia/` 为示例作答文件夹，复制自 `questions/`。
+仓库中的 `answers/danyujia/` 和 `answers/liukaiqing/` 均为示例作答文件夹，复制自 `questions/`。
+
+`你的名字/` 仅在上面的目录结构中展示，仓库中不创建该文件夹。作答时请使用自己名字的汉语拼音创建目录。
