@@ -1,11 +1,12 @@
 /**
- * @param {number[]} nums
- * @return {number[][]}
+ * @param {string} text
+ * @return {string}
  */
-function threeSum(nums) {
+function processInput(text) {
   // 在这里编写你的答案
 }
 
-console.log(threeSum([-1, 0, 1, 2, -1, -4])); // 预期输出：[[-1, -1, 2], [-1, 0, 1]]
-console.log(threeSum([0, 1, 1])); // 预期输出：[]
-console.log(threeSum([0, 0, 0])); // 预期输出：[[0, 0, 0]]
+console.log(processInput("abc#d")); // 预期输出："abd"
+console.log(processInput("ab##c")); // 预期输出："c"
+console.log(processInput("##a#")); // 预期输出：""
+console.log(processInput("")); // 预期输出：""
