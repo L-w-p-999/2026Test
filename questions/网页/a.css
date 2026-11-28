@@ -1,0 +1,267 @@
+.top {
+  grid-row: 1/2;
+  min-width: 100px;
+  margin: 0 auto;
+  position: fixed;
+  display: grid;
+  background-color: white;
+
+  border-bottom: 1px solid gray;
+  top: 0px;
+  left: 0;
+  width: 100vw;
+  height: 60px;
+  line-height: 70px;
+
+  grid-template-columns: 18% 2% 10% 5% 5% 6% 20% 2% 2% 4.5% 4% 18%;
+
+  clear: both;
+}
+
+.Stack_Overflow {
+  font-size: 1.2em;
+  font-weight: 800;
+  grid-column: 3/4;
+}
+
+.svg_1 {
+  height: 1.7em;
+  grid-column: 2/3;
+  align-items: center;
+  justify-items: center;
+  border-top: 1em solid white;
+
+}
+
+.svg_2 {
+  color: gray;
+  z-index: 1;
+  grid-column: 7/8;
+  position: absolute;
+  top: 15%;
+  left: 3%;
+  align-items: center;
+  justify-items: center;
+  border-top: 1em solid white;
+}
+
+.svg_3 {
+  height: 25px;
+  grid-column: 8/9;
+  position: relative;
+  top: 18px;
+  left: 8px;
+}
+
+.svg_4 {
+  width: 25px;
+  grid-column: 9/10;
+  position: relative;
+  top: 22px;
+  left: 5px;
+}
+
+.svg_c {
+  height: 1.5em;
+  width: 1.5em;
+  position: relative;
+  top: 10px
+}
+
+/* .svg_home,
+.svg_question,
+.svg_a,
+.svg_b {
+  width: 1em;
+  position: relative;
+  top: 10px
+} */
+
+.About,
+.Products,
+.Stack {
+  font-size: 0.7em;
+  color: darkgray;
+}
+
+.search {
+  grid-column: 7/8;
+  height: 25px;
+  align-items: center;
+  position: relative;
+  top: 18px;
+  padding-left: 2em;
+}
+
+.in,
+.up {
+  height: 30px;
+  width: 70px;
+  position: relative;
+  top: 15px
+}
+
+.in {
+  background-color: white;
+  border-radius: 8px;
+  border: 2px solid #73bcf4;
+}
+
+.up {
+  background-color: #51acf1;
+  border-radius: 8px;
+  border: none;
+}
+
+.aside_1,
+.aside_2 {
+  padding-top: 30px;
+}
+
+.aside_1 {
+  width: 200px;
+  height: 5000px;
+  position: fixed;
+  top: 60px;
+  left: 16%;
+  /* background-color: #51acf1; */
+
+  border-right: 1px solid gray;
+
+  display: flex;
+  flex-direction: column;
+  z-index: -1;
+
+}
+
+.aside_2 {
+  width: 240px;
+  height: 3000px;
+  position: relative;
+  top: 60px;
+  left: 65%;
+  /* background-color: #51acf1; */
+
+  border-left: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: -1;
+}
+
+.main {
+  position: absolute;
+  width: 560px;
+  top: 60px;
+  left: 30%;
+  z-index: -1;
+}
+
+.home,
+.question,
+.a,
+.b,
+.d,
+.e,
+.f,
+.g,
+.h,
+.i {
+  line-height: 10px;
+  padding-left: 20px;
+  border-radius: 5px;
+  padding-bottom: 20px;
+  padding-top: 10px;
+}
+
+.c {
+  height: 40px;
+  line-height: 20px;
+  padding-left: 20px;
+  border-radius: 5px;
+  padding-bottom: 20px;
+}
+
+:hover.home,
+:hover.question,
+:hover.a,
+:hover.b,
+:hover.c,
+:hover.d,
+:hover.e,
+:hover.f,
+:hover.g,
+:hover.h,
+:hover.i {
+  background-color: #e3e3e3;
+  font-weight: 700;
+}
+
+/* #A2A1E0  */
+.try {
+  background-color: #ceceea;
+  border: 2px solid #7e7dba;
+  border-radius: 6px;
+  height: 300px;
+  width: 300px;
+  font-size: 13px;
+  padding: 13px;
+}
+
+.head {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.Paste {
+  font-style: italic;
+}
+
+.Help {
+  background-color: aliceblue;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.Explore {
+  color: #2084d1;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.the {
+  background-color: #FCF7E9;
+  border: 2px solid #F3E0A8;
+  border-radius: 6px;
+  height: 300px;
+  width: 300px;
+  font-size: 13px;
+  padding: 13px;
+}
+
+.collect {
+  border: 2px solid gray;
+  border-radius: 6px;
+  height: 300px;
+  width: 300px;
+  padding: 13px;
+}
+
+.without {
+  height: 800px;
+}
+
+.Hot {
+  position: sticky;
+  top: 30%;
+  border: 2px solid rgb(202, 201, 201);
+  border-radius: 6px;
+  height: 300px;
+  width: 300px;
+  padding: 13px;
+}
+
+.bottom {
+  background-color: black;
+  height: 500px;
+}

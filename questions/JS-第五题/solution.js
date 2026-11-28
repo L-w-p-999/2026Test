@@ -30,18 +30,34 @@
  * 返回 [0, 1, 1]。重画时，左边像素用 palette[0] 的颜色，中间和右边像素都用 palette[1]。
  */
 function findClosestCentroids(points, centers) {
- //注意points会有两种格式，一种是数据点有x和y坐标，一种是像素点有R、G、B值，设计函数时应该采取可以同时使两种格式的points都能够使用的形式。
- //数据点还是像素点，当使用points[i][j]时，i表示第i个点，他们的区别是j的取值，数据点只能取0或1（分别对应x坐标和y坐标），像素点可以取0或1或2（分别对应R、G、B的值）
- //你需要干的事情：1、计算每个point与每个center间的距离。2、根据距离判断每个point应该归属于哪个center。3、返回一个数组。我们假定它名为label，label[i]表示第i个点归属于的center编号，例如label[i]的值为2，表示第i个点归属于2号的中心点
- //start here
-
-
-
-
-
-
-
- //end here
+  //注意points会有两种格式，一种是数据点有x和y坐标，一种是像素点有R、G、B值，设计函数时应该采取可以同时使两种格式的points都能够使用的形式。
+  //数据点还是像素点，当使用points[i][j]时，i表示第i个点，他们的区别是j的取值，数据点只能取0或1（分别对应x坐标和y坐标），像素点可以取0或1或2（分别对应R、G、B的值）
+  //你需要干的事情：
+  // 1、计算每个point与每个center间的距离。
+  // 2、根据距离判断每个point应该归属于哪个center。
+  // 3、返回一个数组。我们假定它名为label，label[i]表示第i个点归属于的center编号，例如label[i]的值为2，表示第i个点归属于2号的中心点
+  //start here
+  let label = [];
+  let num = [];
+  for (let i = 0; i < points.length; i++) {
+    for (let p = 0; p < centers.length; p++) {
+      if (centers.length === 2) {
+        num.push(Math.sqrt((points[0] - centers[0]) * (points[0] - centers[0]) + (points[1] - centers[1]) * (points[1] - centers[1])))
+      }
+      else {
+        num.push(Math.sqrt((points[0] - centers[0]) * (points[0] - centers[0]) + (points[1] - centers[1]) * (points[1] - centers[1]) + (points[2] - centers[2]) * (points[2] - centers[2])))
+      }
+    }
+    let min = num[0];
+    for (let p = 0; p < centers.length; p++) {
+      if (num[p] < min) {
+        min = num[p]
+      }
+    }
+    label[i] = num.indexOf(min)
+  }
+  return label;
+  //end here
 }
 
 /**

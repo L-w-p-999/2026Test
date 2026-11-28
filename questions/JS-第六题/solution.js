@@ -8,4 +8,6 @@
  */
 function runAgent(question, llm, tools, maxSteps = 5) {
   // 在这里写下你的代码，成为 AI 大王吧！
+  let messages = [{ role: 'user', content: question }];
+  messages.push({ role: 'assistant', toolName: res.toolName, args: res.args })
 }

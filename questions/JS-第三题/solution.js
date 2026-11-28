@@ -6,6 +6,34 @@
  */
 function processStock(goods, operations) {
   // 在这里编写你的答案
+  const failed = [];
+    for (let i = 0; i < operations.length; i++) {
+      let target = 0;
+      for (let k = 0; k < goods.length; k++) {
+        if (goods[k].id === operations[i].id) {
+          target = 1
+        }
+      }
+      if (target) {
+        for (let p = 0; p < goods.length; p++) {
+          if (goods[p].id === operations[i].id) {
+            if (operations[i].type === "in") {
+              goods[p].stock += operations[i].quantity
+            };
+            if (operations[i].type === "out") {
+              let num = goods[p].stock - operations[i].quantity;
+              if (num < 0) { failed.push(i); continue };
+              goods[p].stock -= operations[i].quantity
+
+            };
+          }
+        }
+      }
+
+      else failed.push(i);
+    }
+
+    return { goods, failed }
 }
 
 // 示例 1：正常入库、出库，以及库存不足和商品不存在

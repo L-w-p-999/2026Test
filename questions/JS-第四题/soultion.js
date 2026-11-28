@@ -22,7 +22,6 @@ function createMultiverseTracker() {
     //   status: "stable" | "collapsing" | "erased",
     //   variants: Array<{ name, chaos }>
     // }
-
     return {
         /**
          * 1. 开辟分支
@@ -32,6 +31,21 @@ function createMultiverseTracker() {
          */
         spawnBranch(branchId, threshold) {
             // TODO
+            let git = []
+            if (branchId === "") {
+                return false;
+            }
+            for (let i = 0; i < git.length; i++) {
+                if (branchId === git[i].branchId) {
+                    return false;
+                }
+            }
+
+            if (Number(threshold) || threshold <= 0) {
+                return false;
+            }
+            git.push(new q(branchId, threshold))
+            return true;
         },
 
         /**
