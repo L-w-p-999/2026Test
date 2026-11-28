@@ -1,0 +1,60 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>第5题 · 给照片配一盒颜料</title>
+<style>body{max-width:820px;margin:3em auto;padding:0 1em;font:17px/1.7 system-ui;color:#203843;background:#faf9f5}section{display:flex;flex-wrap:wrap;gap:1em}figure{margin:0}canvas{background:#ddd;max-width:100%}button,select{font:inherit}i{display:inline-block;width:28px;height:28px}.plot-heading{display:flex;align-items:center;justify-content:space-between;gap:.75em;flex-wrap:wrap;margin-top:1.5em}.plot-heading h2{margin:0}#restart{font-size:.9em;color:#405867;background:transparent;border:1px solid #a6b3b5;border-radius:5px;padding:.25em .75em;cursor:pointer}
+#examples{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1em;margin:1em 0 2em}
+.example{background:white;border:1px solid #cfdbd9;border-top:3px solid #277868;border-radius:6px;padding:1em;min-width:0}
+.example header,.test-actions{display:flex;align-items:center;justify-content:space-between;gap:.5em;flex-wrap:wrap}
+.example h3{font-size:1em;margin:0}.signature{display:block;margin:.65em 0;color:#265b53}
+.signature,.inputs,.example dd{font: .87em/1.65 ui-monospace,monospace;overflow-wrap:anywhere}
+.inputs{white-space:pre-wrap;background:#f4f6f3;padding:.6em;border-radius:4px}
+.example dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:.25em .6em}
+.example dt{font-size:.88em;color:#52625e}.example dd{margin:0}
+button{cursor:pointer;color:inherit;border:1px solid #a6b3b5;background:white;border-radius:5px;padding:.25em .65em}
+button:disabled{cursor:default;opacity:.6}#runAll{background:#246756;color:white;border-color:#246756}
+.result-label{font-weight:650}.pass{color:#20644f}.fail,.hint{color:#913a25}
+.hint{font-size:.9em;margin:.25em 0 0}.test-actions{justify-content:flex-start;gap:1em}
+@media(max-width:720px){#examples{grid-template-columns:1fr}}
+</style>
+<h1>第5题 · 给照片配一盒颜料</h1>
+<p>补全「solution.js」中的 <code>findClosestCentroids</code> 和 <code>computeCentroids</code>，用它们给散点分组，再用同样的方法给照片选代表色。</p>
+<h2>一、用小样例检查函数</h2>
+<p>先读输入，预测返回值，再点「运行此例」对照输出。第二个函数的样例已给出 <code>labels</code>，可以独立运行。修改「solution.js」后，保存并刷新本页即可重试。</p>
+<div class="test-actions"><button type="button" id="runAll">运行全部 4 例</button><span id="testSummary" role="status">已运行 0/4</span></div>
+<div id="examples"></div>
+<header class="plot-heading"><h2>二、给散点分组</h2><button id="restart">重新开始</button></header>
+<p>每个圆点代表一个有横、纵坐标的样本。三个菱形是起始中心，标注与函数返回的组号一致（0、1、2）。先给每个点涂上最近中心的颜色，再把每个中心移到同色点的平均位置。</p>
+<canvas id="scatter" width="760" height="420" aria-label="300 个二维样本与三个聚类中心" style="display:block;background:white;width:100%;height:auto"></canvas>
+<p><button id="step">给散点分组</button></p><p role="status" id="plotMessage"></p>
+
+<h2>三、给照片选代表色</h2><p>现在每个点有红、绿、蓝三个坐标。选择 K 种代表色，看看同一套分组方法会把照片画成什么样。</p>
+<label>照片 <select id="photo"><option value="astronaut">宇航员</option><option value="coffee">咖啡</option><option value="rocket">火箭</option></select></label>
+<label>颜色数 K <select id="colors"><option>2</option><option>4</option><option>8</option><option selected>16</option></select></label> <button id="go">生成配色图</button>
+<p role="status" id="statusText"></p><section><figure><canvas width="256" height="256" id="original"></canvas><figcaption>原图</figcaption></figure><figure><canvas width="256" height="256" id="output"></canvas><figcaption>用代表色重画</figcaption></figure></section><div id="swatches"></div>
+<script src="配套脚本/内嵌样图.js"></script><script src="solution.js"></script><script src="配套脚本/小测试.js"></script><script src="配套脚本/实验.js"></script>
+<script src="配套脚本/二维数据.js"></script><script src="配套脚本/散点.js"></script>
+<script>
+const ctx=original.getContext('2d'), dest=output.getContext('2d');
+async function preview(){
+  const key=photo.value;
+  const img=new Image(); img.src=images[key]; await img.decode();
+  if(key===photo.value) ctx.drawImage(img,0,0);
+}
+function reset(){dest.clearRect(0,0,256,256); swatches.replaceChildren();statusText.textContent='点击“生成配色图”，查看代表色绘制的照片。';output.hidden=true;}
+photo.onchange=()=>{reset();preview();};colors.onchange=reset;reset();preview();
+go.onclick=async()=>{
+  reset();
+  try{
+    if (!runAllExamples()) {
+      statusText.textContent='请先查看上方小测试中的实际输出和提示，修正函数后再生成配色图。';
+      return;
+    }
+    await preview();
+    const frame=ctx.getImageData(0,0,256,256), bytes=frame.data, points=[];
+    for(let i=0;i<bytes.length;i+=4) points.push([bytes[i],bytes[i+1],bytes[i+2]]);
+    const {palette,labels}=quantize(points,Number(colors.value));
+    labels.forEach((label,i)=>bytes.set(palette[label].map(Math.round),4*i));
+    output.hidden=false;dest.putImageData(frame,0,0);
+    palette.forEach(rgb=>{const chip=document.createElement('i');chip.style.background='rgb('+rgb.map(Math.round).join(',')+')';swatches.append(chip);});
+    statusText.textContent='四项检查通过。下方色块是本次计算出的调色板。';
+  }catch(error){statusText.textContent=error.message;}
+};
+</script></html>

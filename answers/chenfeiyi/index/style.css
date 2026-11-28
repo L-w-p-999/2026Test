@@ -1,0 +1,615 @@
+body {
+    width: 100vw;
+    min-height: 100vh;
+    margin: 0px;
+}
+
+.head {
+    height: 75px;
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    position: fixed;
+    border-bottom: 1px #464646 solid;
+    z-index: 100;
+    top: 0px;
+    justify-content: center;
+}
+
+.main {
+    margin-top: 75px;
+    min-height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-areas: "left mid right";
+    grid-template-columns: 30%, 40%, 30%;
+}
+
+.left {
+    grid-area: left;
+    border-right: 1px #8f8f8f solid;
+    width: 100%;
+    height: 100%;
+
+}
+
+.mid {
+    grid-area: mid;
+    width: 100%;
+}
+
+.right {
+    grid-area: right;
+    position: relative;
+    width: 100%;
+}
+
+.botton {
+    background-color: #000;
+    width: 100vw;
+    height: auto;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+}
+
+/*大布局*/
+.leftBox {
+    position: sticky;
+    top: -1000px;
+    height: 100%;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    margin-left: 55%;
+}
+
+.rightBox {
+    height: 100%;
+    width: 200px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+/*头部*/
+.headBox {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    width: auto;
+    height: 30%;
+    position: relative;
+}
+
+.logo:hover {
+    background-color: #3e3e3e;
+}
+
+.logo:hover::after {
+    background-color: #3e3e3e;
+    content: "stack overflow";
+    background-color: #ffffff;
+    position: absolute;
+    z-index: 50;
+    border: 1px #232323 solid;
+    top: 25px;
+    left: 5%;
+    width: 100px;
+    padding-left: 20px;
+    border-radius: 10px;
+}
+
+.option {
+    color: #c3c3c3;
+    width: auto;
+    height: 30%;
+    border-radius: 20px;
+    align-items: center;
+}
+
+.option:hover {
+    background-color: #3e3e3e;
+}
+
+.search {
+    height: 40%;
+    width: 25%;
+    border: 1px #3e3e3e solid;
+    border-radius: 10px;
+    padding-left: 20px;
+}
+
+.tubiao {
+    height: 100%;
+    width: 50px;
+    background-color: #b4b4b4;
+    border-radius: 10px;
+    position: relative;
+    ;
+}
+
+.tubiao:hover {
+    background-color: #3a3a3a;
+}
+
+.tubiao:hover::after {
+    content: "123123123";
+    border: 1px #232323 solid;
+    border-radius: 10px;
+    position: absolute;
+    top: 75px;
+    z-index: 50;
+}
+
+
+.login {
+    height: 40%;
+    border: 1px #2c8eff solid;
+    border-radius: 10px;
+    width: 5%;
+    padding-left: 20px;
+    padding-bottom: 5px;
+    box-sizing: border-box;
+    color: #2c8eff;
+}
+
+.login:hover {
+    background-color: #b8d9ff;
+    cursor: pointer;
+}
+
+
+.signup {
+    height: 40%;
+    border: 1px #2c8eff solid;
+    background-color: #2c8eff;
+    border-radius: 10px;
+    width: 5%;
+    padding-left: 20px;
+    padding-bottom: 5px;
+    box-sizing: border-box;
+    color: #ffffff;
+}
+
+.signup:hover {
+    background-color: #005ac1;
+    cursor: pointer;
+}
+
+
+/*中部*/
+.midCard1 {
+    height: 200px;
+    width: 100%;
+    border-bottom: 1px #8f8f8f solid;
+}
+
+.midCard2 {
+    height: 200px;
+    width: 100%;
+    border-bottom: 1px #8f8f8f solid;
+    display: flex;
+}
+
+.midCard2_left {
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+}
+
+.midCard2_right {
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+    justify-content: space-between;
+}
+
+.midLine {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-top: 50px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.midbottom {
+    border-radius: 10px;
+    background-color: #2c8eff;
+    color: #fff;
+    height: 30px;
+    width: 20%;
+    padding-left: 20px;
+}
+
+.midbottom:hover {
+    background-color: #0077ff;
+}
+
+.midOption {
+    border: 1px #464646 solid;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 500px;
+    gap: 20px;
+}
+
+.midOption1 {
+    color: #c3c3c3;
+    width: 19%;
+    height: 75%;
+    border-radius: 10px;
+    align-items: center;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.midOption2 {
+    color: #000000;
+    width: 33%;
+    height: 75%;
+    border-radius: 10px;
+    background-color: #ffffff;
+    padding-top: 10px;
+}
+
+.midOption2 :hover {
+    cursor: pointer;
+    background-color: #8f8f8f;
+}
+
+.midOption3 {
+    color: #232323;
+    width: 19%;
+    height: 75%;
+    border-radius: 10px;
+    align-items: center;
+    padding-top: 10px;
+    padding-left: 10px;
+    background-color: #464646;
+}
+
+.midOption1:hover {
+    background-color: #3e3e3e;
+    cursor: pointer;
+}
+
+.Filter {
+    border: 1px #0077ff solid;
+    border-radius: 10px;
+    margin-left: 20px;
+    color: #0077ff;
+    padding-top: 15px;
+    box-sizing: border-box;
+}
+
+.Filter:hover {
+    background-color: #005ac1;
+    cursor: pointer;
+}
+
+.midLine1 {
+    display: flex;
+}
+
+.smallLine {
+    display: flex;
+    justify-content: space-between;
+}
+
+.smallOption {
+    display: flex;
+    gap: 20px;
+}
+
+.smallcard1 {
+    width: auto;
+    height: 30px;
+    background-color: #464646;
+    color: #000;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: relative;
+}
+
+.smallcard2 {
+    width: auto;
+    height: 30px;
+    background-color: #464646;
+    color: #000;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: relative;
+}
+
+.smallcard1_active {
+    width: 0px;
+    height: 0px;
+    top: 25px;
+    left: -250px;
+    background-color: #ffffff;
+    position: absolute;
+    z-index: 50;
+    border: 1px #232323 solid;
+    opacity: 0;
+}
+
+.smallcard2_active {
+    width: 0px;
+    height: 0px;
+    top: 25px;
+    left: -250px;
+    background-color: #ffffff;
+    position: absolute;
+    z-index: 50;
+    border: 1px #232323 solid;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.smallcard1:hover .smallcard1_active {
+    cursor: pointer;
+    background-color: #f9f9f9;
+    width: 500px;
+    height: 300px;
+    opacity: 1;
+}
+
+.smallcard2:hover .smallcard2_active {
+    cursor: pointer;
+    background-color: #f9f9f9;
+    width: 500px;
+    height: 300px;
+    opacity: 1;
+}
+
+.smallcard1:hover {
+    cursor: pointer;
+    background-color: #1b1b1b;
+}
+
+.smallcard2:hover {
+    cursor: pointer;
+    background-color: #1b1b1b;
+}
+
+.midCardBottom {
+    width: 100%;
+    height: 40px;
+    display: flex;
+}
+
+.midCardBottom1 {
+    background-color: #005ac1;
+    border-radius: 10px;
+    color: #fff;
+    width: 50%;
+    padding-left: 60px;
+    padding-top: 10px;
+    box-sizing: border-box;
+}
+
+.midCardBottom2 {
+    background-color: #ffffff;
+    border-radius: 10px;
+    color: #707070;
+    border: 1px #232323 solid;
+    width: 50%;
+    padding-left: 60px;
+    padding-top: 10px;
+}
+
+
+/*.smallcard:hover::after {
+    content: "Python";
+    width: 500px;
+    height: 300px;
+    top: 25px;
+    left: -250px;
+    background-color: #ffffff;
+    position: absolute;
+    z-index: 50;
+    border: 1px #232323 solid;
+}*/
+
+
+.Users {
+    display: flex;
+    justify-content: center;
+
+}
+
+
+/*右部*/
+.rightCard1 {
+    height: 400px;
+    width: 300px;
+    border-radius: 10px;
+    background-color: #90c4ff;
+    border: 1px #2c8eff solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+}
+
+.rightCard2 {
+    height: 400px;
+    width: 300px;
+    border-radius: 10px;
+    background-color: #ebffa9;
+    border: 1px #d5ff4c solid;
+    padding: 10px;
+}
+
+.rightCard3 {
+    height: 330px;
+    width: 300px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    border: 1px #acacac solid;
+    padding: 10px;
+}
+
+.rightCode {
+    border: 1px #3a3a3a solid;
+    border-radius: 10px;
+    background-color: #8f8f8f;
+    height: 45%;
+    width: 80%;
+    margin-left: 10%;
+    display: flex;
+}
+
+.codeLeft {
+    width: 90%;
+    height: 100%;
+    padding: 10px;
+}
+
+.codeRight {
+    width: 20px;
+    height: 30px;
+    margin-top: 50px;
+    background-color: #005ac1;
+    position: relative;
+}
+
+.codeRight:hover {
+    background-color: #003c81;
+}
+
+.codeRight:hover::after {
+    content: "123123123";
+    border: 1px #232323 solid;
+    border-radius: 10px;
+    position: absolute;
+    top: 20px;
+    z-index: 50;
+    background-color: #fff;
+}
+
+.line3 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rightsmall {
+    border-bottom: 1px #232323 solid;
+    height: 100px;
+    width: 100%;
+}
+
+.linerightsmall {
+    display: flex;
+    width: 100%;
+    height: 50%;
+    justify-content: space-between;
+}
+
+.linerightsmallleft {
+    display: flex;
+}
+
+.text1 {
+    font-size: 20px;
+}
+
+.text2 {
+    font-size: 10px;
+}
+
+.linerightsmallright {
+    border: 1px #003c81 solid;
+    border-radius: 10px;
+    color: #003c81;
+    height: 55%;
+    margin-top: 15px;
+}
+
+.linerightsmallright:hover {
+    background-color: #2c8eff;
+}
+
+/*左部*/
+.leftCard1 {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.leftOption {
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.leftOption:hover {
+    background-color: #3e3e3e;
+    cursor: pointer;
+}
+
+.leftBottom {
+    border-radius: 10px;
+    background-color: #2c8eff;
+    color: #fff;
+    height: 30px;
+    width: 90%;
+    padding-left: 20px;
+}
+
+.leftBottom:hover {
+    background-color: #0077ff;
+}
+
+/*底部*/
+.bottonLine {
+    width: 100%;
+    height: 30px;
+    padding: 10px;
+    box-sizing: border-box;
+    padding-left: 30%;
+}
+
+.bottonCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.bottonCard1 {
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+    gap: 0px;
+
+}
+
+p {
+    margin: 0;
+}
+
+p:hover {
+    color: #6b6b6b;
+    cursor: pointer;
+}
