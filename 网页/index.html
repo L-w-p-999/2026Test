@@ -1,0 +1,871 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>页面仿写</title>
+  <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: #242729;
+  background-color: #ffffff;
+  font-family: Arial, "Microsoft YaHei";
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+a { color: #0074cc; text-decoration: none; }
+
+a:hover {
+  color: #005999;
+}
+
+button,
+input { font-family: inherit; font-size: 14px; }
+
+button {
+  cursor: pointer;
+}
+
+img {
+  vertical-align: middle;
+}
+
+.icon img {
+  width: 18px;
+  height: 18px;
+}
+
+.btn img {
+  width: 16px;
+  height: 16px;
+}
+
+.stripe {
+  width: 100%;
+  height: 3px;
+  background-color: #f48024;
+}
+
+.header {
+  width: 100%;
+  height: 56px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #d6d9dc;
+  display: sticky;
+  z-index: 9999;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  width: 1240px;
+  height: 56px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  color: #242729;
+  font-size: 20px;
+  white-space: nowrap;
+}
+
+.logo img {
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+}
+
+.logo strong {
+  font-weight: bold;
+}
+
+.nav { display: flex; margin-left: 18px; }
+
+.nav a {
+  padding: 7px 9px;
+  color: #525960;
+  border-radius: 15px;
+  font-size: 13px;
+}
+
+.nav a:hover { color: #242729; background-color: #f1f2f3; }
+
+.search {
+  position: relative;
+  display: flex;
+  width: 440px;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.search img {
+  position: absolute;
+  left: 11px;
+  width: 18px;
+  height: 18px;
+}
+
+.search input {
+  width: 440px;
+  height: 36px;
+  padding-left: 36px;
+  border: 1px solid #babfc4;
+  border-radius: 6px;
+  outline: none;
+}
+
+.search input:focus {
+  border-color: #0a95ff;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin-right: 7px;
+  color: #525960;
+  background-color: #eef0f1;
+  border-radius: 4px;
+  font-size: 18px;
+}
+
+.btn {
+  display: inline-block;
+  min-height: 35px;
+  margin-right: 7px;
+  padding: 7px 12px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.blue {
+  color: #ffffff;
+  background-color: #0a95ff;
+  border-color: #0a95ff;
+}
+
+.blue:hover { color: #ffffff; background-color: #0074cc; }
+
+.soft {
+  color: #39739d;
+  background-color: #e1ecf4;
+  border-color: #7aa7c7;
+}
+
+.line {
+  min-height: 33px;
+  padding: 6px 10px;
+  color: #525960;
+  background-color: #ffffff;
+  border-color: #babfc4;
+  font-size: 12px;
+}
+
+.line:hover { color: #242729; background-color: #f1f2f3; }
+
+.page {
+  display: flex;
+  width: 1240px;
+  margin: 0 auto;
+}
+
+.side {
+  width: 190px;
+  padding: 22px 16px 40px 0;
+  border-right: 1px solid #e4e6e8;
+}
+
+.links { display: flex; flex-direction: column; }
+
+.links a {
+  display: flex;
+  align-items: center;
+  min-height: 33px;
+  padding: 6px 8px;
+  color: #525960;
+  font-size: 13px;
+}
+
+.links a:hover { color: #242729; background-color: #f1f2f3; }
+
+.links a.on {
+  color: #242729;
+  background-color: #f1f2f3;
+  font-weight: bold;
+}
+
+.links img {
+  width: 17px;
+  height: 17px;
+  margin-right: 8px;
+}
+
+.rule {
+  height: 1px;
+  margin: 15px 0;
+  background-color: #e4e6e8;
+}
+
+.box {
+  margin-top: 24px;
+}
+
+.box h2,
+.box-head h2 {
+  color: #3b4045;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.box-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.box-head button {
+  width: 25px;
+  height: 25px;
+  color: #525960;
+  background-color: #ffffff;
+  border: none;
+  font-size: 18px;
+}
+
+.box p {
+  margin: 8px 0;
+  color: #525960;
+  font-size: 12px;
+}
+
+.box a {
+  font-size: 12px;
+}
+
+.internal {
+  margin-top: 30px;
+}
+
+.art {
+  position: relative;
+  width: 106px;
+  height: 108px;
+  margin: 10px 0 12px;
+}
+
+.art span {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 34px;
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.art span img {
+  width: 20px;
+  height: 20px;
+}
+
+.red {
+  top: 0;
+  left: 0;
+  background-color: #f48024;
+}
+
+.gold {
+  top: 0;
+  left: 44px;
+  color: #242729;
+  background-color: #f1c40f;
+}
+
+.green {
+  top: 34px;
+  left: 0;
+  background-color: #78a55a;
+}
+
+.white {
+  top: 34px;
+  left: 44px;
+  color: #5b7f95;
+  background-color: #ffffff;
+  border: 1px solid #d6d9dc;
+}
+
+.art .blue {
+  top: 68px;
+  left: 0;
+  width: 88px;
+  background-color: #4385d9;
+}
+
+.art b {
+  position: absolute;
+  top: 43px;
+  right: -4px;
+  font-size: 35px;
+}
+
+.platform { display: block; margin-bottom: 12px; }
+
+.wide {
+  display: block;
+  width: 100%;
+  font-size: 12px;
+}
+
+.feed { width: 730px; padding: 22px 20px 38px; }
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title h1 { font-size: 27px; font-weight: normal; }
+
+.title .btn { padding: 8px 15px; font-size: 13px; }
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+  padding-bottom: 12px;
+}
+
+.bar>p {
+  font-size: 17px;
+}
+
+.filters { display: flex; align-items: center; }
+
+.tabs {
+  display: flex;
+  margin-right: 8px;
+  border: 1px solid #9fa6ad;
+  border-radius: 5px;
+}
+
+.tabs button {
+  min-height: 33px;
+  padding: 6px 10px;
+  color: #525960;
+  background-color: #ffffff;
+  border: none;
+  border-right: 1px solid #d6d9dc;
+  font-size: 12px;
+}
+
+.tabs button.on {
+  color: #242729;
+  background-color: #f1f2f3;
+  font-weight: bold;
+}
+
+.tabs span {
+  display: inline-block;
+  min-width: 16px;
+  height: 16px;
+  color: #ffffff;
+  background-color: #39739d;
+  border-radius: 4px;
+  font-size: 10px;
+}
+
+.posts {
+  border-top: 1px solid #d6d9dc;
+}
+
+.post {
+  display: flex;
+  padding: 16px 0;
+  border-bottom: 1px solid #d6d9dc;
+}
+
+.stat {
+  width: 78px;
+  padding-right: 12px;
+  color: #6a737c;
+  font-size: 12px;
+  text-align: right;
+}
+
+.stat span { display: block; margin-bottom: 2px; }
+
+.stat .ok {
+  margin: 3px 0 5px;
+  padding: 2px 6px;
+  color: #2f6f44;
+  border: 1px solid #379f5c;
+  border-radius: 4px;
+}
+
+.stat .low {
+  color: #c22e32;
+}
+
+.qbody {
+  width: 572px;
+}
+
+.qbody h2 {
+  margin-bottom: 6px;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.qbody h2 small { color: #6a737c; font-size: 13px; }
+
+.qbody>p {
+  margin-bottom: 10px;
+  color: #3b4045;
+  font-size: 13px;
+}
+
+.qbody footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.tags { display: flex; flex-wrap: wrap; }
+
+.tags span {
+  margin-right: 4px;
+  margin-bottom: 4px;
+  padding: 3px 5px;
+  color: #39739d;
+  background-color: #e1ecf4;
+  border-radius: 3px;
+  font-size: 11px;
+}
+
+.who {
+  color: #6a737c;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.who b {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 3px;
+  color: #ffffff;
+  background-color: #65a9a3;
+  border-radius: 50%;
+  font-size: 9px;
+  line-height: 18px;
+  text-align: center;
+}
+
+.who span,
+.who time {
+  margin-left: 4px;
+}
+
+.pager {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+.pager>div {
+  display: flex;
+  align-items: center;
+  color: #6a737c;
+  font-size: 12px;
+}
+
+
+
+.pager button.on { color: #ffffff; background-color: #3b4045; }
+
+.aside { width: 300px; padding: 22px 0 40px 16px; }
+
+
+.card>a img {
+  width: 14px;
+  height: 14px;
+  margin-right: 6px;
+}
+
+.agent,
+.meta { background-color: #fdf7e2; border-color: #e5d596; }
+
+.prompt {
+  padding: 10px;
+  background-color: #ffffff;
+  border: 1px solid #babfc4;
+  border-radius: 5px;
+}
+
+.prompt span {
+  display: block;
+  margin-bottom: 5px;
+  color: #6a737c;
+  font-size: 9px;
+  font-style: italic;
+}
+
+.prompt code {
+  color: #3b4045;
+  font-family: Consolas, monospace;
+  font-size: 10px;
+}
+
+
+
+.groups {
+  padding: 0;
+}
+
+.groups .card-head {
+  padding: 15px 15px 5px;
+}
+
+.group {
+  display: flex;
+  align-items: flex-start;
+  padding: 12px 15px;
+  border-top: 1px solid #e4e6e8;
+}
+
+.group>b {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 31px;
+  height: 31px;
+  margin-right: 8px;
+  border-radius: 50%;
+  font-size: 18px;
+}
+
+.group>b img {
+  width: 18px;
+  height: 18px;
+}
+
+.group>div {
+  width: 180px;
+}
+
+.group h3 {
+  font-size: 12px;
+}
+
+.group span {
+  display: block;
+  color: #525960;
+  font-size: 9px;
+}
+
+.group p {
+  margin-top: 5px;
+  color: #3b4045;
+  font-size: 10px;
+}
+
+.group button {
+  padding: 4px 7px;
+  color: #39739d;
+  background-color: #e1ecf4;
+  border: 1px solid #7aa7c7;
+  border-radius: 4px;
+  font-size: 10px;
+}
+
+.google { color: #4285f4; background-color: #f4f7ff; }
+
+.microsoft { color: #666666; background-color: #f4f4f4; }
+
+.nlp {
+  color: #ffffff;
+  background-color: #126b89;
+  font-size: 9px;
+}
+
+.foot {
+  width: 100%;
+  margin-top: 28px;
+  color: #c9d1d9;
+  background-color: #0d1117;
+}
+
+.foot-in {
+  width: 1240px;
+  margin: 0 auto;
+  padding: 34px 0 30px;
+}
+
+
+  </style>
+</head>
+
+<body>
+  <div class="stripe"></div>
+  <header class="header">
+    <div class="top">
+      <a class="logo" href="#" title="Stack Overflow home">
+        <img src="images/stack-overflow-fill.svg" ><span>stack <strong>overflow</strong></span>
+      </a>
+      <nav class="nav"><a href="#">About</a><a href="#">Products</a><a href="#">Stack Internal</a></nav>
+      <label class="search"><img src="images/search-line.svg" ><input type="search" placeholder="Search..."></label>
+      <div class="right">
+        <a class="icon" href="#" title="Help"><img src="images/question-line.svg"></a>
+        <a class="icon" href="#" title="Inbox"><img src="images/inbox-archive-line.svg" ></a>
+        <a class="btn soft" href="#">Log in</a>
+        <a class="btn blue" href="#">Sign up</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <aside class="side">
+      <nav class="links">
+        <a href="#"><img src="images/home-5-line.svg" alt="">Home</a>
+        <a class="on" href="#"><img src="images/question-answer-line.svg" alt="">Questions</a>
+        <a href="#"><img src="images/robot-2-line.svg" >AI Assist</a>
+        <a href="#"><img src="images/price-tag-3-line.svg" >Tags</a>
+        <a href="#"><img src="images/openai-fill.svg" >Stack Overflow for Agents</a>
+        <a href="#"><img src="images/trophy-line.svg" >Challenges</a>
+        <a href="#"><img src="images/chat-3-line.svg" >Chat</a>
+        <a href="#"><img src="images/article-line.svg" >Articles</a>
+        <a href="#"><img src="images/group-line.svg" >Users</a>
+      </nav>
+      <div class="rule"></div>
+      <nav class="links">
+        <a href="#"><img src="images/building-2-line.svg">Companies</a>
+        <a href="#"><img src="images/code-s-slash-line.svg">Developer Story</a>
+      </nav>
+
+      <section class="box">
+        <div class="box-head">
+          <h2>Collectives</h2><button>+</button>
+        </div>
+        <p>Communities for your favorite technologies.</p>
+        <a href="#">Explore all Collectives</a>
+      </section>
+
+      <section class="box internal">
+        <h2>Stack Internal</h2>
+        <div class="art">
+          <span class="red"><img src="images/close-line.svg" alt=""></span>
+          <span class="gold"><img src="images/alert-fill.svg" alt=""></span>
+          <span class="green"><img src="images/checkbox-circle-fill.svg" alt=""></span>
+          <span class="white"><img src="images/robot-2-line.svg" alt=""></span>
+          <span class="blue"><img src="images/shield-check-line.svg" alt=""></span>
+        </div>
+        <p>Turn company knowledge into trusted AI context.</p>
+        <a class="platform" href="#">Explore the platform</a>
+        <a class="btn blue wide" href="#">Create a workspace</a>
+      </section>
+    </aside>
+
+    <section class="feed">
+      <div class="title">
+        <h1>Newest Questions</h1><a class="btn blue" href="#">Ask Question</a>
+      </div>
+      <div class="bar">
+        <p>24,134,879 questions</p>
+        <div class="filters">
+          <div class="tabs">
+            <button class="on">Newest</button><button>Active</button><button>Bountied
+              <span>8</span></button><button>Unanswered</button>
+          </div>
+          <button class="btn line">More <img src="images/arrow-down-s-line.svg" alt=""></button>
+          <button class="btn line"><img src="images/filter-3-line.svg" alt=""> Filter</button>
+        </div>
+      </div>
+
+      <div class="posts">
+        <article class="post">
+          <div class="stat"><span>0 votes</span><span>0 answers</span><span>24 views</span></div>
+          <div class="qbody">
+            <h2><a href="#">Maven distribution verification: sha256 or sha-512?</a></h2>
+            <p>Maven Central appears to prefer SHA-512 for published binaries. Which checksum should a client verify?
+            </p>
+            <footer>
+              <div class="tags"><span>maven</span><span>maven-3</span></div>
+              <div class="who"><b>E</b> elis <span>53.9k</span><time>20 mins ago</time></div>
+            </footer>
+          </div>
+        </article>
+        <article class="post">
+          <div class="stat"><span>0 votes</span><span class="ok">1 answer</span><span>42 views</span></div>
+          <div class="qbody">
+            <h2><a href="#">What is the point of reveal_type?</a></h2>
+            <p>一段英语</p>
+            <footer>
+              <div class="tags"><span>python</span><span>python-typing</span></div>
+              <div class="who"><b>J</b> JadenV <span>2,872</span><time>48 minsago</time></div>
+            </footer>
+          </div>
+        </article>
+        <article class="post">
+          <div class="stat"><span>0 votes</span><span>0 answers</span><span>16 views</span></div>
+          <div class="qbody">
+            <h2><a href="#">Validate an empty nested JSON array in Karate DSL</a></h2>
+            <p>这是段英语
+            </p>
+            <footer>
+              <div class="tags"><span>karate</span><span>json</span></div>
+              <div class="who"><b>Y</b> ypdev19 <span>113</span><time>49 mins ago</time></div>
+            </footer>
+          </div>
+        </article>
+        <article class="post">
+          <div class="stat"><span>0 votes</span><span>0 answers</span><span>27 views</span></div>
+          <div class="qbody">
+            <h2><a href="#">Safe pattern to process multiple files in Awk</a></h2>
+            <p>这是段英语</p>
+            <footer>
+              <div class="tags"><span>bash</span><span>awk</span><span>posix</span></div>
+              <div class="who"><b>F</b> Fravadona <span>18k</span><time>1 hour ago</time></div>
+            </footer>
+          </div>
+        </article>
+        <article class="post">
+          <div class="stat"><span class="low">4 votes</span><span>0 answers</span><span>62 views</span></div>
+          <div class="qbody">
+            <h2><a href="#">Server error while creating a PythonAnywhere account</a> <small>[closed]</small></h2>
+            <p>这是段英语</p>
+            <footer>
+              <div class="tags"><span>pythonanywhere</span></div>
+              <div class="who"><b>M</b> Maria Kasakawa <span>43</span><time>1 hour ago</time></div>
+            </footer>
+          </div>
+        </article>
+        <article class="post">
+          <div class="stat"><span class="low">3 votes</span><span>0 answers</span><span>64 views</span></div>
+          <div class="qbody">
+            <h2><a href="#">Linux Mint Cinnamon crashes into fallback mode</a> <small>[closed]</small></h2>
+            <p>这是段英语</p>
+            <footer>
+              <div class="tags"><span>graphics</span><span>linux-mint</span><span>cinnamon</span></div>
+              <div class="who"><b>U</b> user3419419 <span>119</span><time>2 hours ago</time></div>
+            </footer>
+          </div>
+        </article>
+        <article class="post">
+          <div class="stat"><span>1 vote</span><span class="ok">1 answer</span><span>81 views</span></div>
+          <div class="qbody">
+            <h2><a href="#">Check pg_prewarm readiness during PostgreSQL startup</a></h2>
+            <p>这是段英语</p>
+            <footer>
+              <div class="tags"><span>postgresql</span><span>kubernetes</span><span>database</span></div>
+              <div class="who"><b>R</b> rebrane <span>219</span><time>3 hours ago</time></div>
+            </footer>
+          </div>
+        </article>
+      </div>
+
+      <nav class="pager">
+        <div><button
+            class="on">1</button><button>2</button><button>3</button><button>4</button><button>5</button><span>…</span><button>Next</button>
+        </div>
+        <div><span>per page</span><button>15</button><button>30</button><button>50</button></div>
+      </nav>
+    </section>
+
+    <aside class="aside">
+      <section class="card agent">
+        <h2>Try Stack Overflow for Agents</h2>
+        <p>Verified knowledge for coding assistants.</p>
+        <div class="prompt"><span>Paste this into your AI coding
+            assistant</span><code>Read the onboarding guide, then get started.</code></div>
+        <a href="#">Explore Stack Overflow for Agents</a>
+      </section>
+      <section class="card">
+        <div class="card-head">
+          <h2>The Overflow Blog</h2><a href="#">view</a>
+        </div>
+        <a href="#"><img src="images/quill-pen-line.svg" alt="">Agent swarms need more than a message board</a>
+        <a href="#"><img src="images/quill-pen-line.svg" alt="">Dispatches from O'Reilly: Inside a software factory</a>
+      </section>
+      <section class="card meta">
+        <h2>Featured on Meta</h2>
+        <a href="#"><img src="images/megaphone-line.svg" alt="">Seeking feedback on new content health signals</a>
+        <a href="#"><img src="images/shield-star-line.svg" alt="">Policy: Generative AI is banned</a>
+      </section>
+      <section class="card groups">
+        <div class="card-head">
+          <h2>Collectives</h2><a href="#">see all</a>
+        </div>
+        <div class="group"><b class="google"><img src="images/google-fill.svg" alt=""></b>
+          <div>
+            <h3>Google Cloud</h3><span>76k Members</span>
+            <p>Build and run applications on Google Cloud.</p>
+          </div><button>Join</button>
+        </div>
+        <div class="group"><b class="microsoft"><img src="images/microsoft-fill.svg" alt=""></b>
+          <div>
+            <h3>Microsoft Azure</h3><span>32k Members</span>
+            <p>Share and learn about Azure services.</p>
+          </div><button>Join</button>
+        </div>
+        <div class="group"><b class="nlp">NLP</b>
+          <div>
+            <h3>NLP</h3><span>14k Members</span>
+            <p>Natural language processing and extraction.</p>
+          </div><button>Join</button>
+        </div>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="foot">
+    <div class="foot-in">
+      <img class="foot-logo" src="images/stack-overflow-fill.svg" alt="">
+      <div class="foot-grid">
+        <section>
+          <h2>Stack Overflow</h2><a href="#">Questions</a><a href="#">Tour</a><a href="#">Help</a><a href="#">Chat</a><a
+            href="#">Feedback</a>
+        </section>
+        <section>
+          <h2>Business</h2><a href="#">Stack Internal</a><a href="#">Stack Data Licensing</a><a href="#">Stack Ads</a>
+        </section>
+        <section>
+          <h2>Company</h2><a href="#">About</a><a href="#">Press</a><a href="#">Work Here</a><a href="#">Legal</a><a
+            href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Contact Us</a>
+        </section>
+        <section>
+          <h2>Open Communities</h2><a href="#">Technology</a><a href="#">Culture recreation</a><a href="#">Life
+            arts</a><a href="#">Science</a><a href="#">Business</a><a href="#">API</a><a href="#">Data</a>
+        </section>
+      </div>
+      <div class="foot-bottom">
+        <nav><a href="#">Blog</a><a href="#">Facebook</a><a href="#">Twitter</a><a href="#">LinkedIn</a><a
+            href="#">Instagram</a></nav>
+        <p>这是一个蓝色的商标<a href="#">CC BY-SA</a>.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

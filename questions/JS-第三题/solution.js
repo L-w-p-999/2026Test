@@ -5,7 +5,7 @@
  * @return {{ goods: { id: number, name: string, stock: number }[], failed: number[] }}
  */
 function processStock(goods, operations) {
-  // 在这里编写你的答案
+  
 }
 
 // 示例 1：正常入库、出库，以及库存不足和商品不存在

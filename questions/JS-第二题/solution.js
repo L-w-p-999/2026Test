@@ -3,7 +3,23 @@
  * @return {number}
  */
 function countSuspiciousSegments(nums) {
-  // 在这里编写你的答案
+    if (nums.length === 0|| !nums ) return 0;
+    
+   for(let i = 0; i < n; i++){
+    var count = 0;
+    var n = nums.length;
+    for(let j = i;j < n;j++){
+    let one = 0;
+    if(nums[j]==1){
+      one ++;
+    }if(one == 1){
+      count ++;
+    }else if(one > 1){
+      break;
+    }
+   }
+  }
+   return count;
 }
 
 console.log(countSuspiciousSegments([0, 1, 0, 1])); // 预期输出：6

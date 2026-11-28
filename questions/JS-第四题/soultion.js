@@ -31,7 +31,9 @@ function createMultiverseTracker() {
          * @returns {boolean}
          */
         spawnBranch(branchId, threshold) {
-            // TODO
+            if(branchId=null) return false;
+            if(threshold==undefined||threshold<0) return false
+            
         },
 
         /**
